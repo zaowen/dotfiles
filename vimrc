@@ -1,19 +1,45 @@
-"I commonly hold shift too long when saving this was easier"
-command W w
+"reload this file on write
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
 
-let topvar = "/************************************************************************\n	Program:\n	Author:\n	Class:\n	Instructor:\n	Date:\n 	Description:\n	Input:\n	Output:\n	Compilation instructions:\n	Usage:\n	Known bugs/missing features:\n	Modifications:\n   Date                Comment            \n    ----    ------------------------------------------------\n************************************************************************/"
+" Set Retarded things that should be standard
+:colorscheme corporation
 
-let headvar  = "/************************************************************************\nFunction:\nAuthor: Zacharious Owen\nDescription:\nParameters:\n************************************************************************/"
+:set number
+:syntax on 
+:set ruler
+:set backspace=2
 
-let iferrvar = "if(    )\n{\nprintf(\"ErrorCodeName: \\nExiting\");\nreturn -1;\n}\n"
+" split things 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 
+" Save aliases because i'm shit 
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
-command IFERR call append ( line('.'), split ( iferrvar , "\n") ) | :execute 'normal =5j'
+" Whitespace show
+:set list
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·
 
-command HEAD call append ( line('.'), split ( headvar , "\n") )
+" Tab stuff
+:set expandtab
+:set tabstop=3
+:set softtabstop=3
 
-command TOP call append ( line('.'), split ( topvar , "\n") )
+" Cursor
+:hi Cursor guifg=Green guibg=Black
+:set cursorline
+:hi CursorLine guibg=#333333
+:set cursorcolumn
+:hi CursorColumn guibg=#333333
 
-"do you ever not want line numbers and syntax highlighting"
-set number
-syntax on
+:set guifont=Consolas:h11:cANSI:qDRAFT
