@@ -1,0 +1,48 @@
+/************************************************************************
+Program: 
+Author: ZArthur 
+Class:
+Instructor:
+Date:
+Description: 
+Input:
+Output:
+Compilation instructions:
+Usage:
+Known bugs/missing features:
+Modifications:
+Date                Comment            
+----    ------------------------------------------------
+ ************************************************************************/
+
+#include <iostream>
+#include <fstream> 
+#include <vector> 
+#include <cmath>
+
+
+
+/*********************** global symbolic constants *********************/
+
+/*********************** global type definitions ***********************/
+
+/*********************** function prototypes ***************************/
+
+
+
+/************************************************************************
+Function:
+Author:
+Description:
+Parameters:
+ ************************************************************************/
+int main( int argc, char * argv[] )
+{
+	if( argc < x )
+	{
+		return 1;
+	}
+	
+	return 0;
+}
+

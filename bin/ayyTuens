@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cd /home/zao/Audio/unsorted
+
+if [ -f list ]; then
+
+for i in $( cat list)
+    do
+    /home/zao/bin/youtube-dl $i;
+    done
+
+    /home/zao/bin/vidtomp3;
+
+    for i in *.{mkv,mp4,webm,avi};
+    do
+        rm "${i}"
+    done
+    rm list
+
+    mpc update
+fi

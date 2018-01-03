@@ -1,0 +1,245 @@
+# i3 config file
+set $mod Mod4
+
+# Drag Windows with Mod4
+floating_modifier $mod
+
+# start terminal
+bindsym $mod+Return exec urxvt
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# focus urgent window
+bindsym $mod+space [urgent=latest] focus
+
+# change focus
+bindsym $mod+l focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+h focus left
+
+# Move Workspace from one output 
+bindsym $mod+o move workspace to output right
+bindsym $mod+u move workspace to output left
+
+# move focused window
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+h move left
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Removes topbar
+for_window[class="^.*"]border pixel 3
+
+#Working places
+set $wks1  "1: Emperor"
+set $wks2  "2: Master"
+set $wks3  "3: Slave"
+set $wks4  "4: Stuff"
+#Volume
+set $wks5  "5: Volume"
+#Misc
+set $wks6  "6: Misc"
+#Netflix tab
+set $wks7  "7: Tubes"
+#htop and logs
+set $wks8  "8: Stats"
+#CalCurses
+set $wks9  "9: Calendar"
+#vlc bydefault opens here
+set $wks10 "10:Media"
+
+# switch to workspace
+bindsym $mod+1 workspace $wks1
+bindsym $mod+2 workspace $wks2
+bindsym $mod+3 workspace $wks3
+bindsym $mod+4 workspace $wks4
+bindsym $mod+5 workspace $wks5
+bindsym $mod+6 workspace $wks6
+bindsym $mod+7 workspace $wks7
+bindsym $mod+8 workspace $wks8
+bindsym $mod+9 workspace $wks9
+bindsym $mod+0 workspace $wks10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $wks1
+bindsym $mod+Shift+2 move container to workspace $wks2
+bindsym $mod+Shift+3 move container to workspace $wks3
+bindsym $mod+Shift+4 move container to workspace $wks4
+bindsym $mod+Shift+5 move container to workspace $wks5
+bindsym $mod+Shift+6 move container to workspace $wks6
+bindsym $mod+Shift+7 move container to workspace $wks7
+bindsym $mod+Shift+8 move container to workspace $wks8
+bindsym $mod+Shift+9 move container to workspace $wks9
+bindsym $mod+Shift+0 move container to workspace $wks10
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Imagine that this caterpillar is your window manager and MMA fighter, Kimbo Slice is a exit button who wants to Unleash a world of hurt upon your window manager. Will you allow it?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym Shift+h resize shrink width 30 px or 30 ppt
+
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym Shift+j resize grow height 30 px or 30 ppt
+
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 30 px or 30 ppt
+
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Shift+l resize grow width 30 px or 30 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#Color Scheme colors
+set $bg-color			#150B0B
+set $inactive-bg-color		#140606
+set $text-color			#eeeeee
+set $inactive-text-color	#4f4b4b
+set $urgent-bg-color		#ff0000
+set $outline			#ffff00
+
+
+
+# window colors	
+#                       border				background			text					indicator
+client.focused			$text-color			$outline			$text-color				#00ff00
+client.unfocused		$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.urgent			$urgent-bg-color	$urgent-bg-color	$text-color         	#00ff00
+
+#run Polybar
+bar {	
+   position top
+   i3bar_command killall -q polybar; polybar example &
+   font pango:Hack 10
+}
+
+# Application Organization
+assign [class="Firefox"] $wks7
+assign [class="qutebrowser"] $wks7
+assign [class="Vlc"] $wks10
+assign [class="Pavucontrol"] $wks5
+assign [instance="htop"] $wks8
+assign [instance="syslog"] $wks8
+assign [instance="calendar"] $wks9
+assign [class="Pidgin"] $wks3
+assign [class="Gpodder"] $wks9
+for_window [class="Gimp"] floating enable
+for_window [instance="Steam.exe"] floating enable
+
+# KEY-BINDINGS
+
+#Lock Screen
+bindsym $mod+shift+x exec i3lock -t -i ~/Pictures/.lock/lock.png
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec bash -c 'rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -font "Hack 15"'
+
+bindsym $mod+shift+d exec bash -c 'rofi -show window -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$inactive-bg-color" -bg "$inactive-bg-color" -fg "$text-color" -hlbg "$inactive-bg-color" -hlfg "#inactive-text-color" -font "Hack 15"'
+
+#increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ 
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- 
+# mute sound
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle 
+
+# bring up this i3 config file 
+bindsym $mod+Shift+i exec urxvt -e gvim $HOME/.config/i3/config
+
+# bring up Vim
+bindsym $mod+Shift+v exec urxvt -e gvim
+
+# bring up ayyyTuens list
+bindsym Shift+F1 exec urxvt -e gvim ~/Audio/unsorted/list
+
+#Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -set 75
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -set 5
+bindsym Shift+F7 exec --no-startup-id xbacklight -inc 20
+bindsym Shift+F6 exec --no-startup-id xbacklight -dec 20
+
+#Take Screenshot
+bindsym Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots' 
+
+#Open File manager
+bindsym $mod+Shift+f exec urxvt -e ranger
+
+#Run Update script
+bindsym $mod+Shift+u exec urxvt -e ~/bin/update.sh
+
+#Open Email
+bindsym $mod+Shift+n exec urxvt -e neomutt
+
+#Music client
+bindsym $mod+Shift+m exec urxvt -name ncmpcpp -e ncmpcpp
+for_window [instance="ncmpcpp"] floating enable
+
+
+#SOUNDBOARD
+bindsym $mod+F1 exec aplay ~/.config/i3/soundboard/F1.wav
+bindsym $mod+F2 exec aplay ~/.config/i3/soundboard/F2.wav
+bindsym $mod+F3 exec aplay ~/.config/i3/soundboard/F3.wav
+bindsym $mod+F4 exec aplay ~/.config/i3/soundboard/F4.wav
+bindsym $mod+F5 exec aplay ~/.config/i3/soundboard/F5.wav
+bindsym $mod+F6 exec aplay ~/.config/i3/soundboard/F6.wav
+bindsym $mod+F7 exec aplay ~/.config/i3/soundboard/F7.wav
+bindsym $mod+F8 exec aplay ~/.config/i3/soundboard/F8.wav
+bindsym $mod+F9 exec aplay ~/.config/i3/soundboard/F9.wav
+#bindsym $mod+F10 exec aplay ~/.config/i3/soundboard/F10.wav
+bindsym $mod+F10 exec ~/bin/rain.sh
+bindsym $mod+Shift+F10 exec ~/bin/killrain.sh 
+#bindsym $mod+F11 exec aplay ~/.config/i3/soundboard/F11.wav
+bindsym $mod+F11 exec ~/bin/jazz.sh
+bindsym $mod+Shift+F11 exec ~/bin/killjazz.sh 
+
+bindsym $mod+F12 exec killall aplay
+#END SOUNDBOARD
+
+exec gpodder
+exec_always --no-startup-id mpd ~/.mpd/mpd.conf
+exec qutebrowser
+exec pavucontrol
+
+exec urxvt -e htop -name htop
+exec urxvt -e journalctl -f -name syslog
+exec_always urxvt -name calendar -e calcurse
+exec --no-startup-id "i3-msg 'workspace 8: Stats; append_layout /home/zao/.config/i3/stat.json'"
+
+exec ~/bin/wallpaper.sh
+exec ~/bin/touchscreenoff

@@ -1,0 +1,5 @@
+#!/bin/bash
+INTERFACE=$(xsetwacom list | grep touch | grep -Po ": \d\d" | grep -Po "\d\d")
+echo $INTERFACE
+
+xsetwacom set $INTERFACE touch off

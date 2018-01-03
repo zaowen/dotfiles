@@ -1,0 +1,11 @@
+#vidtomp3.sh
+#
+#Converts video files in a folder to mp3
+
+for i in *.{mkv,mp4,webm,avi};
+	  do 
+		echo "${i}";
+		name=`echo "${i}" | cut -d'.' -f1`;
+		    echo "$name";
+		     ffmpeg -i "${i}" "${name}".mp3;
+	      done
