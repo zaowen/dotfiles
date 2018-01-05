@@ -15,7 +15,6 @@ alias ls='ls -l'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias vim='gvim'
 alias yamite='reboot'
 
 # Git Aliases

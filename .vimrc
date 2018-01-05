@@ -135,4 +135,6 @@ set clipboard=unnamed
 map <F4> :vsp %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Open Maximized
-au GUIEnter * simalt ~x
+if has ("win16") || has("win32") || has("win64") 
+   au GUIEnter * simalt ~x
+endif 
