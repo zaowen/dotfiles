@@ -111,11 +111,11 @@ nnoremap <space> za
 
 " Cursor
 if has ('gui_running')
-   :hi Cursor guifg=Green guibg=Black
-    :set cursorline
-    :hi CursorLine guibg=#333333
-    :set cursorcolumn
-    :hi CursorColumn guibg=#333333
+   :hi Cursor guifg=black guibg=grey
+   :set cursorline
+   :hi CursorLine guibg=#333333
+   :set cursorcolumn
+   :hi CursorColumn guibg=#333333
 endif
 
 "Edgy bitmap font
