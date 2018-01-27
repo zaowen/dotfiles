@@ -31,7 +31,7 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 export PATH=~/bin:$PATH
-export PATH=~/.gem/ruby/2.4.0/bin:$PATH
+export PATH=~/.gem/ruby/2.5.0/bin:$PATH
 export GOPATH=$HOME/SeniorDesign/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -68,3 +68,4 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 export KEYTIMEOUT=1
+

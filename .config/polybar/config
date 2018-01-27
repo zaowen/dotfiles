@@ -52,6 +52,24 @@ modules-left = i3
 modules-right = cpu temperature memory 
 padding-left = 0
 
+[bar/botsideVGA]
+inherit = section/base
+
+monitor = ${env:MONITOR:VGA-1}
+
+bottom = true
+modules-left = i3
+padding-left = 0
+
+[bar/botsideHDMI]
+inherit = section/base
+
+monitor = ${env:MONITOR:HDMI-1}
+
+bottom = true
+modules-left = i3
+padding-left = 0
+
 
 [bar/top]
 inherit = section/base
@@ -100,10 +118,9 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+pin-workspaces = true
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
+label-mode= %mode%
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
@@ -138,9 +155,9 @@ label-song-ellipsis = true
 
 
 bar-progress-width = 30
-bar-progress-indicator = |
+bar-progress-indicator = 
 bar-progress-fill-foreground = #f00
-bar-progress-fill = ─
+bar-progress-fill = -
 bar-progress-empty = " "
 
 [module/xbacklight]
@@ -302,7 +319,7 @@ animation-charging-0 =  
 animation-charging-1 =  
 animation-charging-2 =  
 animation-charging-3 =  
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
 [module/temperature]

@@ -50,22 +50,22 @@ bindsym $mod+Shift+space floating toggle
 for_window[class="^.*"]border pixel 3
 
 #Working places
-set $wks1  "1: Emperor"
-set $wks2  "2: Master"
-set $wks3  "3: Slave"
-set $wks4  "4: Stuff"
+set $wks1  "1: "
+set $wks2  "2: "
+set $wks3  "3: "
+set $wks4  "4: "
 #Volume
-set $wks5  "5: Volume"
+set $wks5  "5: "
 #Misc
-set $wks6  "6: Misc"
+set $wks6  "6: "
 #Netflix tab
-set $wks7  "7: Tubes"
+set $wks7  "7: "
 #htop and logs
-set $wks8  "8: Stats"
+set $wks8  8: 
 #CalCurses
-set $wks9  "9: Calendar"
+set $wks9  "9: "
 #vlc bydefault opens here
-set $wks10 "10:Media"
+set $wks10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $wks1
@@ -144,13 +144,14 @@ client.urgent			$urgent-bg-color	$urgent-bg-color	$text-color         	#00ff00
 
 #run Polybar
 bar {	
-   position top
-   i3bar_command killall -q polybar; polybar example &
+   id bar-bot
+   i3bar_command $HOME/bin/runpoly
+#i3bar_command killall -q "polybar"; polybar bot; 
    font pango:Hack 10
 }
 
+
 # Application Organization
-assign [class="Firefox"] $wks7
 assign [class="qutebrowser"] $wks7
 assign [class="Vlc"] $wks10
 assign [class="Pavucontrol"] $wks5
@@ -231,15 +232,17 @@ bindsym $mod+Shift+F11 exec ~/bin/killjazz.sh
 bindsym $mod+F12 exec killall aplay
 #END SOUNDBOARD
 
+#Startup Programs
 exec gpodder
 exec_always --no-startup-id mpd ~/.mpd/mpd.conf
 exec qutebrowser
 exec pavucontrol
 
-exec urxvt -e htop -name htop
-exec urxvt -e journalctl -f -name syslog
+exec urxvt -name htop -e htop
+exec urxvt -name syslog -e journalctl -f
 exec_always urxvt -name calendar -e calcurse
-exec --no-startup-id "i3-msg 'workspace 8: Stats; append_layout /home/zao/.config/i3/stat.json'"
+exec --no-startup-id "i3-msg 'workspace $wks8; append_layout /home/zao/.config/i3/stat.json'"
 
 exec ~/bin/wallpaper.sh
 exec ~/bin/touchscreenoff
+
