@@ -5,7 +5,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -181,13 +181,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle 
 
 # bring up this i3 config file 
-bindsym $mod+Shift+i exec urxvt -e gvim $HOME/.config/i3/config
+bindsym $mod+Shift+i exec st -e gvim $HOME/.config/i3/config
 
 # bring up Vim
-bindsym $mod+Shift+v exec urxvt -e gvim
+bindsym $mod+Shift+v exec st -e gvim
 
 # bring up ayyyTuens list
-bindsym Shift+F1 exec urxvt -e gvim ~/Audio/unsorted/list
+bindsym Shift+F1 exec st -e gvim ~/Audio/unsorted/list
 
 #Brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -set 75
@@ -199,16 +199,16 @@ bindsym Shift+F6 exec --no-startup-id xbacklight -dec 20
 bindsym Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots' 
 
 #Open File manager
-bindsym $mod+Shift+f exec urxvt -e ranger
+bindsym $mod+Shift+f exec st -e ranger
 
 #Run Update script
-bindsym $mod+Shift+u exec urxvt -e ~/bin/update.sh
+bindsym $mod+Shift+u exec st -e ~/bin/update.sh
 
 #Open Email
-bindsym $mod+Shift+n exec urxvt -e neomutt
+bindsym $mod+Shift+n exec st -e neomutt
 
 #Music client
-bindsym $mod+Shift+m exec urxvt -name ncmpcpp -e ncmpcpp
+bindsym $mod+Shift+m exec st -name ncmpcpp -e ncmpcpp
 for_window [instance="ncmpcpp"] floating enable
 
 
@@ -238,10 +238,10 @@ exec_always --no-startup-id mpd ~/.mpd/mpd.conf
 exec qutebrowser
 exec pavucontrol
 
-exec urxvt -name htop -e htop
-exec urxvt -name syslog -e journalctl -f
-exec_always urxvt -name calendar -e calcurse
-exec --no-startup-id "i3-msg 'workspace $wks8; append_layout /home/zao/.config/i3/stat.json'"
+exec st -e htop -name htop
+exec st -e journalctl -f -name syslog
+exec_always st -name calendar -e calcurse
+exec --no-startup-id "i3-msg 'workspace 8: Stats; append_layout /home/zao/.config/i3/stat.json'"
 
 exec ~/bin/wallpaper.sh
 exec ~/bin/touchscreenoff

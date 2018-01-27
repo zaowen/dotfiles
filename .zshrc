@@ -34,6 +34,7 @@ export PATH=~/bin:$PATH
 export PATH=~/.gem/ruby/2.5.0/bin:$PATH
 export GOPATH=$HOME/SeniorDesign/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:.
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/

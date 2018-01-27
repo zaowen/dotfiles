@@ -7,12 +7,41 @@ for p in $(pgrep $(basename $0)); do
    fi
 done
 
-PAPER=$(find /home/zao/Pictures/.w/ -type f \( -name '*.jpg' -o -name '*.png' \) -print0 | shuf -n1 -z)
+DIR=.w
+TIMEOUT=5s
+LOC=1
 
-#find /home/khan/Pictures/.w/ -type f \( -name '*.jpg' -o -name '*.png' \) -print0 | shuf -n1 -z | xargs -0 feh --bg-fill
+checkwifi(){
+   SSID=$(iw dev wlp2s0 link | grep SSID: | awk -c '{ for( i=2; i <= NF; i++) { printf $i } }')
+
+   if [[ $SSID == "InkandPaperTwin" ]]; then
+      DIR=.nsw
+      TIMEOUT=5s
+      LOC=1
+   else
+      DIR=.w
+      TIMEOUT=1m
+      LOC=2
+   fi
+
+}
+
+getwall(){
+   PAPER=$(find /home/zao/Pictures/$DIR/ -type f \( -name '*.jpg' -o -name '*.png' \) -print0 | shuf -n1 -z)
+}
+
+checkwifi
+getwall
 
 while true;
 do
-	feh "$PAPER" --bg-fill
-      sleep 30m
+   OLDLOC=$LOC
+   feh "$PAPER" --bg-fill
+   sleep $TIMEOUT
+
+   checkwifi
+   if [[ ! $OLDLOC == $LOC ]]; then
+      echo getting new wall
+      getwall
+   fi
 done

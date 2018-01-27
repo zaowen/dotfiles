@@ -116,10 +116,9 @@ if has ('gui_running')
    :hi CursorLine guibg=#333333
    :set cursorcolumn
    :hi CursorColumn guibg=#333333
+   "Edgy bitmap font
+   :set guifont=Hack 15
 endif
-
-"Edgy bitmap font
-:set guifont=Misc\ Tamsyn\ 15
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
