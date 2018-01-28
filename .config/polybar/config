@@ -52,19 +52,8 @@ modules-left = i3
 modules-right = cpu temperature memory 
 padding-left = 0
 
-[bar/botsideVGA]
+[bar/botside]
 inherit = section/base
-
-monitor = ${env:MONITOR:VGA-1}
-
-bottom = true
-modules-left = i3
-padding-left = 0
-
-[bar/botsideHDMI]
-inherit = section/base
-
-monitor = ${env:MONITOR:HDMI-1}
 
 bottom = true
 modules-left = i3

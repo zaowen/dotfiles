@@ -1,0 +1,11 @@
+#!/bin/bash
+
+killall -q polybar
+polybar top &
+polybar bot &
+
+MONS=$(xrandr -q | grep -v primary | grep "\Wconnected" | awk -c '{ print $1}')
+for i in $MONS; do
+MONITOR=$i polybar botside
+done
+
