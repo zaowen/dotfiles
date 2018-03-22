@@ -3,32 +3,32 @@ augroup reload_vimrc " {
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-"set nocompatible              " be iMproved, required
-"filetype off                  " required
-"set nocp
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-""set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"
-"" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-"
-"Plugin 'yangmillstheory/vim-snipe'  "Inline Movment
-"Plugin 'tpope/vim-fugitive'         "Git integration
-"Plugin 'ervandew/supertab'          "Tab Complet
-"Plugin 'raimondi/delimitmate'       "Thing closers
-"":Plugin 'w0rp/ale'                   "Lint Engine
-"Plugin 'OmniCppComplete'
-"
-"call vundle#end()            " required
-"filetype plugin indent on    " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-"Seek to next mark
-""inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_DisplayMode = 1
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'garbas/vim-snipmate'
+
+  " Optional:
+  Plugin 'honza/vim-snippets'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+map <leader><Tab> :-1 read ~/.vim/snip/%:e<CR> <leader><Space>
+inoremap <leader><Space> <Esc>/<++><Enter>"_c4l
+nnoremap <leader><Space> <Esc>/<++><Enter>"_c4l
 
 " Latex
 autocmd FileType tex map <F5> :!pdflatex -output-directory=%:p:h %:p<CR>
@@ -39,10 +39,18 @@ autocmd FileType tex inoremap \align \begin{align*}<CR><Space><CR>\end{align*}<E
 autocmd FileType tex inoremap \enu \begin{enumerate}<CR>\item <CR>\end{enumerate} <++><Esc>kA
 "END
 
+" Bash
+   " Google Indentation
+autocmd FileType sh set tabstop=2          "Set Display tabstop
+autocmd FileType sh set softtabstop=2      "Set inserted tabstop
+autocmd FileType sh set shiftwidth=2      "Set inserted tabspace
+"END
+
 " C++
-autocmd FileType cpp inoremap \for for( <+++> )<CR>{<CR><++><CR>}<CR><++><Esc>?<+++><CR>"_c5l
-autocmd FileType cpp inoremap \pr printf("<+++>");<CR><++><Esc>?<+++><CR>"_c5l
-autocmd FileType cpp inoremap \if if( <+++> )<CR>{<CR><++><CR>}<CR><++><Esc>?<+++><CR>"_c5l
+   " Google Indentation
+autocmd FileType cpp set tabstop=2          "Set Display tabstop
+autocmd FileType cpp set softtabstop=2      "Set inserted tabstop
+autocmd FileType cpp set shiftwidth=2      "Set inserted tabspace
 "END
 
 " Python
@@ -51,6 +59,11 @@ au BufNewFile SCons* set filetype=python
 
 :autocmd BufNew,BufRead SConstruct setf python
 :autocmd BufNew,BufRead SConscript setf python
+
+   " Google Indentation
+autocmd FileType py set tabstop=2          "Set Display tabstop
+autocmd FileType py set softtabstop=2      "Set inserted tabstop
+autocmd FileType py set shiftwidth=2      "Set inserted tabspace
 "END
 
 " Set Retarded things that should be standard
@@ -80,10 +93,10 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Save aliases because i'm shit
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
 
 "Turn gvim into sudo gvim
 cmap w!! w !sudo tee >/dev/null %
@@ -96,9 +109,6 @@ cmap w!! w !sudo tee >/dev/null %
 
 " Tab stuff
 :set expandtab          "Use spaces instead of tabs
-:set tabstop=3          "Set Display tabstop
-:set softtabstop=3      "Set inserted tabstop
-:set shiftwidth=3      "Set inserted tabspace
 :set autoindent         "infer indent from previous line
 :set smartindent        "somehow diffrent from autoindent
 :set cindent            "somehow diffrent from smartindent
@@ -117,7 +127,7 @@ if has ('gui_running')
    :set cursorcolumn
    :hi CursorColumn guibg=#333333
    "Edgy bitmap font
-   :set guifont=Hack 15
+   :set guifont=Hack
 endif
 
 set incsearch           " search as characters are entered
@@ -133,7 +143,9 @@ set clipboard=unnamed
 " Open .cpp from .h and .h from .cpp
 map <F4> :vsp %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
-" Open Maximized
-if has ("win16") || has("win32") || has("win64") 
-   au GUIEnter * simalt ~x
+" Open Maximized in Windows
+if has ("win16") || has("win32") || has("win64")
+   if has ('gui_running')
+      au GUIEnter * simalt ~x
+   endif
 endif 
