@@ -70,3 +70,6 @@ zle -N zle-keymap-select
 
 export KEYTIMEOUT=1
 
+export EDITOR=vim
+export VISUAL=vim
+

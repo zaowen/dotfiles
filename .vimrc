@@ -37,6 +37,7 @@ autocmd FileType tex inoremap \bf \textbf{}<Space><++><Esc>T{i
 autocmd FileType tex inoremap \if \textit{}<Space><++><Esc>T{i
 autocmd FileType tex inoremap \align \begin{align*}<CR><Space><CR>\end{align*}<Esc>kA
 autocmd FileType tex inoremap \enu \begin{enumerate}<CR>\item <CR>\end{enumerate} <++><Esc>kA
+autocmd FileType tex :set spell
 "END
 
 " Bash

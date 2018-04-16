@@ -1,2 +1,2 @@
-# I3archOS
+# Zach's Dotfiles
 Backup of configuration files for my I3 Archlinux Desktop/Laptop etc...
