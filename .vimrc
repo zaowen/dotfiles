@@ -30,7 +30,9 @@ map <leader><Tab> :-1 read ~/.vim/snip/%:e<CR> <leader><Space>
 inoremap <leader><Space> <Esc>/<++><Enter>"_c4l
 nnoremap <leader><Space> <Esc>/<++><Enter>"_c4l
 
+
 " Latex
+autocmd FileType tex map <F4> :!bibtex %:r.aux<CR>
 autocmd FileType tex map <F5> :!pdflatex -output-directory=%:p:h %:p<CR>
 autocmd FileType tex map <F6> :silent :!evince %:r.pdf &<CR>
 autocmd FileType tex inoremap \bf \textbf{}<Space><++><Esc>T{i

@@ -56,7 +56,7 @@ padding-left = 0
 inherit = section/base
 
 bottom = true
-modules-left = i3
+modules-left = i3 
 padding-left = 0
 
 
@@ -66,7 +66,7 @@ inherit = section/base
 padding-left = 1
 
 modules-left = mpd
-modules-right = filesystem xbacklight volume wlan battery date
+modules-right = filesystem xbacklight volume wlan mail battery date
 
 
 [module/xwindow]
@@ -313,6 +313,14 @@ animation-charging-2 =  
 animation-charging-3 =  
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
+
+[module/mail]
+type = custom/script
+
+exec = ls ~/.Mail/Gmail/INBOX/new | wc -l
+format = <label>
+label =  %output%
+
 
 [module/temperature]
 type = internal/temperature
