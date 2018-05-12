@@ -6,9 +6,12 @@ floating_modifier $mod
 
 # start terminal
 bindsym $mod+Return exec st
+bindsym $mod+Shift+Return exec st -n float
+for_window [instance="float"] floating enable
 
 # kill focused window
 bindsym $mod+Shift+c kill
+#bindsym control+Mod1+c kill
 
 # focus urgent window
 bindsym $mod+space [urgent=latest] focus
@@ -143,11 +146,12 @@ client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-col
 client.urgent			$urgent-bg-color	$urgent-bg-color	$text-color         	#00ff00
 
 #run Polybar
-bar {	
-   id bar-bot
+bar {
+id bar-bot
    i3bar_command $HOME/bin/runpoly
-#i3bar_command killall -q "polybar"; polybar bot; 
    font pango:Hack 10
+#   position	top
+#   status_command i3blocks
 }
 
 
@@ -157,6 +161,7 @@ assign [class="Vlc"] $wks10
 assign [class="Pavucontrol"] $wks5
 assign [instance="htop"] $wks8
 assign [instance="syslog"] $wks8
+assign [instance="news"] $wks6
 assign [instance="calendar"] $wks9
 assign [class="Pidgin"] $wks3
 assign [class="Gpodder"] $wks9
@@ -181,13 +186,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle 
 
 # bring up this i3 config file 
-bindsym $mod+Shift+i exec st -e gvim $HOME/.config/i3/config
+bindsym $mod+Shift+i exec gvim $HOME/.config/i3/config
 
 # bring up Vim
-bindsym $mod+Shift+v exec st -e gvim
+bindsym $mod+Shift+v exec gvim
 
 # bring up ayyyTuens list
-bindsym Shift+F1 exec st -e gvim ~/Audio/unsorted/list
+bindsym Shift+F1 exec gvim ~/Audio/unsorted/list
 
 #Brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -set 75
@@ -197,6 +202,12 @@ bindsym Shift+F6 exec --no-startup-id xbacklight -dec 20
 
 #Take Screenshot
 bindsym Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots' 
+
+#Display Management
+bindsym $mod+Shift+g exec ~/bin/Grandr.sh
+
+#change Wallpaper
+bindsym $mod+Shift+w exec kill -s USR1 $(pgrep wallpaper.sh)
 
 #Open File manager
 bindsym $mod+Shift+f exec st -e ranger
@@ -208,7 +219,7 @@ bindsym $mod+Shift+u exec st -e ~/bin/update.sh
 bindsym $mod+Shift+n exec st -e neomutt
 
 #Music client
-bindsym $mod+Shift+m exec st -name ncmpcpp -e ncmpcpp
+bindsym $mod+Shift+m exec st -n ncmpcpp -e ncmpcpp
 for_window [instance="ncmpcpp"] floating enable
 
 
@@ -238,11 +249,13 @@ exec_always --no-startup-id mpd ~/.mpd/mpd.conf
 exec qutebrowser
 exec pavucontrol
 
-exec st -e htop -name htop
-exec st -e journalctl -f -name syslog
-exec_always st -name calendar -e calcurse
-exec --no-startup-id "i3-msg 'workspace 8: Stats; append_layout /home/zao/.config/i3/stat.json'"
+exec st -n htop -e htop
+exec st -n syslog -e journalctl -f
+exec st -n calendar -e calcurse
+exec st -n news -e newsboat
+exec --no-startup-id "i3-msg 'workspace $wks8; append_layout /home/zao/.config/i3/stat.json'"
 
-exec ~/bin/wallpaper.sh
 exec ~/bin/touchscreenoff
-
+#exec_always --no-startup-id compton -bcCGf -i 0.8 -e 0.8 --no-fading-openclose --sw-opti
+exec_always --no-startup-id compton 
+exec_always --no-startup-id ~/bin/wallpaper.sh > /dev/null
