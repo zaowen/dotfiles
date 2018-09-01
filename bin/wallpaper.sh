@@ -1,4 +1,8 @@
 #!/bin/bash
+# Wallpaper manager
+# Chooses random backgrounds on startup.
+# Sending this script SIGUSR1 will change wallpaper.
+# Has a home and not home setting for more...fun papers ;^)
 
 # Capture SIGUSR1
 trap 'handleSig' 10
@@ -13,7 +17,7 @@ handleSig(){
 checkwifi(){
   SSID=$(iw dev wlp2s0 link | grep SSID: | awk -c '{ for( i=2; i <= NF; i++) { printf $i } }')
 
-  if [[ $SSID == "InkandPaperTwin" ]]; then
+  if [[ $SSID == $HOMEWIFI ]]; then
     DIR=.nsw
     TIMEOUT=5s
     LOC=1
