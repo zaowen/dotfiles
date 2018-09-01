@@ -207,7 +207,8 @@ assign [instance="calendar"] $wks9
 ################################################################################
 
 #Lock Screen
-bindsym $mod+shift+x exec i3lock -t -i ~/Pictures/.lock/lock.png
+#bindsym $mod+shift+x exec i3lock -t -i ~/Pictures/.lock/lock.png
+bindsym $mod+shift+x exec ~/bin/lockscreen
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec bash -c 'rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -font "Hack 15"'
