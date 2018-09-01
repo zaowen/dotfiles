@@ -317,7 +317,7 @@ animation-charging-framerate = 750
 [module/mail]
 type = custom/script
 
-exec = ls ~/.Mail/Gmail/INBOX/new | wc -l
+exec = bash -c "if [[ -d .Mail/Gmail/INBOX/new ]]; then ls ~/.Mail/Gmail/INBOX/new | wc -l; fi"
 format = <label>
 label =  %output%
 
