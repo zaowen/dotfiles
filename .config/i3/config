@@ -1,7 +1,9 @@
-# i3 config file
+# zao i3 config file
+
+# set super
 set $mod Mod4
 
-# Drag Windows with Mod4
+# Drag Windows
 floating_modifier $mod
 
 # start terminal
@@ -11,7 +13,6 @@ for_window [instance="float"] floating enable
 
 # kill focused window
 bindsym $mod+Shift+c kill
-#bindsym control+Mod1+c kill
 
 # focus urgent window
 bindsym $mod+space [urgent=latest] focus
@@ -57,11 +58,10 @@ set $wks1  "1: "
 set $wks2  "2: "
 set $wks3  "3: "
 set $wks4  "4: "
+set $wks5  "5: "
 #Volume
-set $wks5  "5: "
-#Misc
-set $wks6  "6: "
-#Netflix tab
+set $wks6  "6: "
+#Internet
 set $wks7  "7: "
 #htop and logs
 set $wks8  8: 
@@ -69,6 +69,20 @@ set $wks8  8: 
 set $wks9  "9: "
 #vlc bydefault opens here
 set $wks10 "10:"
+
+#Ansilary Workspaces
+set $wksf1   "11: F1 "
+set $wksf2   "12: F2 "
+set $wksf3   "13: F3 "
+set $wksf4   "14: F4 "
+set $wksf5   "15: F5 "
+set $wksf6   "16: F6 "
+set $wksf7   "17: F7 "
+set $wksf8   "18: F8 "
+set $wksf9   "19: F9 "
+set $wksf10  "20: F10 "
+set $wksf11  "21: F11 "
+set $wksf12  "22: F12 "
 
 # switch to workspace
 bindsym $mod+1 workspace $wks1
@@ -82,6 +96,19 @@ bindsym $mod+8 workspace $wks8
 bindsym $mod+9 workspace $wks9
 bindsym $mod+0 workspace $wks10
 
+bindsym $mod+F1 workspace $wksf1
+bindsym $mod+F2 workspace $wksf2
+bindsym $mod+F3 workspace $wksf3
+bindsym $mod+F4 workspace $wksf4
+bindsym $mod+F5 workspace $wksf5
+bindsym $mod+F6 workspace $wksf6
+bindsym $mod+F7 workspace $wksf7
+bindsym $mod+F8 workspace $wksf8
+bindsym $mod+F9 workspace $wksf9
+bindsym $mod+F10 workspace $wksf10
+bindsym $mod+F11 workspace $wksf11
+bindsym $mod+F12 workspace $wksf12
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $wks1
 bindsym $mod+Shift+2 move container to workspace $wks2
@@ -94,13 +121,26 @@ bindsym $mod+Shift+8 move container to workspace $wks8
 bindsym $mod+Shift+9 move container to workspace $wks9
 bindsym $mod+Shift+0 move container to workspace $wks10
 
+bindsym $mod+Shift+F1 move container to workspace $wksf1
+bindsym $mod+Shift+F2 move container to workspace $wksf2
+bindsym $mod+Shift+F3 move container to workspace $wksf3
+bindsym $mod+Shift+F4 move container to workspace $wksf4
+bindsym $mod+Shift+F5 move container to workspace $wksf5
+bindsym $mod+Shift+F6 move container to workspace $wksf6
+bindsym $mod+Shift+F7 move container to workspace $wksf7
+bindsym $mod+Shift+F8 move container to workspace $wksf8
+bindsym $mod+Shift+F9 move container to workspace $wksf9
+bindsym $mod+Shift+F10 move container to workspace $wksf10
+bindsym $mod+Shift+F11 move container to workspace $wksf11
+bindsym $mod+Shift+F12 move container to workspace $wksf12
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
 # exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Imagine that this caterpillar is your window manager and MMA fighter, Kimbo Slice is a exit button who wants to Unleash a world of hurt upon your window manager. Will you allow it?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# resize window
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         bindsym h resize shrink width 10 px or 10 ppt
@@ -150,25 +190,21 @@ bar {
 id bar-bot
    i3bar_command $HOME/bin/runpoly
    font pango:Hack 10
-#   position	top
-#   status_command i3blocks
 }
 
 
 # Application Organization
 assign [class="qutebrowser"] $wks7
 assign [class="Vlc"] $wks10
-assign [class="Pavucontrol"] $wks5
+assign [class="Pavucontrol"] $wks6
 assign [instance="htop"] $wks8
 assign [instance="syslog"] $wks8
 assign [instance="news"] $wks6
 assign [instance="calendar"] $wks9
-assign [class="Pidgin"] $wks3
-assign [class="Gpodder"] $wks9
-for_window [class="Gimp"] floating enable
-for_window [instance="Steam.exe"] floating enable
 
+################################################################################
 # KEY-BINDINGS
+################################################################################
 
 #Lock Screen
 bindsym $mod+shift+x exec i3lock -t -i ~/Pictures/.lock/lock.png
@@ -221,30 +257,30 @@ bindsym $mod+Shift+n exec st -e neomutt
 #Music client
 bindsym $mod+Shift+m exec st -n ncmpcpp -e ncmpcpp
 for_window [instance="ncmpcpp"] floating enable
+for_window [instance="qt4-ssh-askpass"] floating enable
 
 
-#SOUNDBOARD
-bindsym $mod+F1 exec aplay ~/.config/i3/soundboard/F1.wav
-bindsym $mod+F2 exec aplay ~/.config/i3/soundboard/F2.wav
-bindsym $mod+F3 exec aplay ~/.config/i3/soundboard/F3.wav
-bindsym $mod+F4 exec aplay ~/.config/i3/soundboard/F4.wav
-bindsym $mod+F5 exec aplay ~/.config/i3/soundboard/F5.wav
-bindsym $mod+F6 exec aplay ~/.config/i3/soundboard/F6.wav
-bindsym $mod+F7 exec aplay ~/.config/i3/soundboard/F7.wav
-bindsym $mod+F8 exec aplay ~/.config/i3/soundboard/F8.wav
-bindsym $mod+F9 exec aplay ~/.config/i3/soundboard/F9.wav
-#bindsym $mod+F10 exec aplay ~/.config/i3/soundboard/F10.wav
-bindsym $mod+F10 exec ~/bin/rain.sh
-bindsym $mod+Shift+F10 exec ~/bin/killrain.sh 
-#bindsym $mod+F11 exec aplay ~/.config/i3/soundboard/F11.wav
-bindsym $mod+F11 exec ~/bin/jazz.sh
-bindsym $mod+Shift+F11 exec ~/bin/killjazz.sh 
-
-bindsym $mod+F12 exec killall aplay
-#END SOUNDBOARD
+##SOUNDBOARD
+#bindsym $mod+F1 exec aplay ~/.config/i3/soundboard/F1.wav
+#bindsym $mod+F2 exec aplay ~/.config/i3/soundboard/F2.wav
+#bindsym $mod+F3 exec aplay ~/.config/i3/soundboard/F3.wav
+#bindsym $mod+F4 exec aplay ~/.config/i3/soundboard/F4.wav
+#bindsym $mod+F5 exec aplay ~/.config/i3/soundboard/F5.wav
+#bindsym $mod+F6 exec aplay ~/.config/i3/soundboard/F6.wav
+#bindsym $mod+F7 exec aplay ~/.config/i3/soundboard/F7.wav
+#bindsym $mod+F8 exec aplay ~/.config/i3/soundboard/F8.wav
+#bindsym $mod+F9 exec aplay ~/.config/i3/soundboard/F9.wav
+##bindsym $mod+F10 exec aplay ~/.config/i3/soundboard/F10.wav
+#bindsym $mod+F10 exec ~/bin/rain.sh
+#bindsym $mod+Shift+F10 exec ~/bin/killrain.sh 
+##bindsym $mod+F11 exec aplay ~/.config/i3/soundboard/F11.wav
+#bindsym $mod+F11 exec ~/bin/jazz.sh
+#bindsym $mod+Shift+F11 exec ~/bin/killjazz.sh 
+#
+#bindsym $mod+F12 exec killall aplay
+##END SOUNDBOARD
 
 #Startup Programs
-exec gpodder
 exec_always --no-startup-id mpd ~/.mpd/mpd.conf
 exec qutebrowser
 exec pavucontrol
@@ -255,7 +291,5 @@ exec st -n calendar -e calcurse
 exec st -n news -e newsboat
 exec --no-startup-id "i3-msg 'workspace $wks8; append_layout /home/zao/.config/i3/stat.json'"
 
-exec ~/bin/touchscreenoff
-#exec_always --no-startup-id compton -bcCGf -i 0.8 -e 0.8 --no-fading-openclose --sw-opti
-exec_always --no-startup-id compton 
+exec_always --no-startup-id compton
 exec_always --no-startup-id ~/bin/wallpaper.sh > /dev/null
