@@ -1,0 +1,24 @@
+#!/bin/bash
+#Locks the screen with a swirl and a meme hmmm emoji
+
+# Structure stolen from:
+#https://github.com/LukeSmithxyz/voidrice/blob/master/.scripts/lockscreen
+
+rm -f /tmp/locked.png
+
+CENTER=$(find /home/zao/bin/ -type f \( -name '*.png' \)  | shuf -n1 )
+
+# If `imagemagick` is not installed, use a blank screen.
+[[ -f /usr/bin/convert ]] &&
+scrot -m -z /tmp/base.png &&
+convert /tmp/base.png -paint 1 -swirl 360 $CENTER -gravity center -composite -matte  /tmp/locked.png
+
+# Pause music (mocp, mpd and send the pause key to all mpv videos):
+#mocp -P &>/dev/null
+mpc pause &>/dev/null
+#pauseallmpv &>/dev/null
+
+i3lock -e -f -c 000000 -i /tmp/locked.png
+
+# In five seconds, turn off display unless key press in last 4 seconds.
+#sleep 5 && [[ 4000 -lt $(xssstate -i) ]] &&  pgrep -x i3lock && xset dpms force off

@@ -1,17 +1,25 @@
 #!/bin/bash
 
 echo Starting Update and Orphan Deletion;
-yes | sudo pacman -Syu 
-ORPHANS="$(pacman -Qtdq)"
 
-LEVEL=1;
-while [ "$ORPHANS" != "" ]
-do
-	echo Begining Orphan Search LVL$LEVEL
-	yes | sudo pacman -Rns $ORPHANS;
-	ORPHANS=$(pacman -Qtdq)
-	LEVEL=$((LEVEL+1))
- done
+if which pacman > /dev/null;
+then
+INSTALLER="pacman -Syu";
+REMOVER="pacman -Rns $(pacman -Qtdq)"
+elif which xbps-install > /dev/null;
+then 
+INSTALLER="xbps-install -Su"
+REMOVER="xbps-remove -o"
+fi
+
+
+echo "\tBegining Update..."
+yes | sudo $INSTALLER
+
+echo "\tBegining Orphan Deletion"
+
+yes | sudo $REMOVER
+
 
 echo Update and deletion process complete
 echo Press the Any key to continue...
