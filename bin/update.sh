@@ -1,4 +1,5 @@
 #!/bin/bash
+# Update script that in theory works on Void and Arch.
 
 echo Starting Update and Orphan Deletion;
 

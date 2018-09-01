@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Spawns polybar where I like it. Main bars on the main screen with a side bar on all others.
+
 killall -q polybar
 
 PRIMARY=$(xrandr -q | grep primary | grep "\Wconnected" | awk -c '{ print $1}')
