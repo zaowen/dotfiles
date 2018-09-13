@@ -95,7 +95,7 @@ while getopts ":v" opt; do
 done
 
 echo Deploying dotfiles...
-for i in $(find . ! -path '*.git*' ! -name 'README.md' ! -name 'deploy.sh*' -printf "%P\n" ); do
+for i in $(find . ! -path '*.git*' ! -name 'README.md' ! -name 'deploy.sh*' ! -name 'install' -printf "%P\n" ); do
    if [[ -d $i ]]; then
       if [[ -f $HOME/$i ]]; then
          mkdir $HOME/$i

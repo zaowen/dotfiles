@@ -5,11 +5,16 @@
 killall -q polybar
 
 PRIMARY=$(xrandr -q | grep primary | grep "\Wconnected" | awk -c '{ print $1}')
-MONITOR=$PRIMARY polybar top &
-MONITOR=$PRIMARY polybar bot &
+MONITOR=$PRIMARY polybar top >/dev/null 2>&1 &
+MONITOR=$PRIMARY polybar bot >/dev/null 2>&1 &
+
+if [[ $PRIMARY == "" ]];
+then
+  exit 1
+fi
 
 MONS=$(xrandr -q | grep -v primary | grep "\Wconnected" | awk -c '{ print $1}')
 for i in $MONS; do
-MONITOR=$i polybar botside &
+MONITOR=$i polybar botside >/dev/null 2>&1 &
 done
 

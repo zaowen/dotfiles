@@ -222,6 +222,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 # mute sound
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle 
 
+bindsym XF86PowerOff exec sudo /sbin/shudown -h now
+
 # bring up this i3 config file 
 bindsym $mod+Shift+i exec gvim $HOME/.config/i3/config
 
@@ -283,7 +285,7 @@ for_window [instance="qt4-ssh-askpass"] floating enable
 
 #Startup Programs
 exec_always --no-startup-id mpd ~/.mpd/mpd.conf
-exec qutebrowser
+exec qutebrowser >/dev/null 2>&1
 exec pavucontrol
 
 exec st -n htop -e htop
