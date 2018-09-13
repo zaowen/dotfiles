@@ -18,3 +18,5 @@ xorg
 xorg-xinit
 xrandr
 zsh 
+ImageMagick
+scrot
