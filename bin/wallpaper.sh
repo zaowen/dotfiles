@@ -4,6 +4,8 @@
 # Sending this script SIGUSR1 will change wallpaper.
 # Has a home and not home setting for more...fun papers ;^)
 
+HOMEWIFI="Derp"
+
 # Capture SIGUSR1
 trap 'handleSig' 10
 trap 'handleSig' 30
