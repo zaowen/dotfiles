@@ -46,6 +46,12 @@ autocmd FileType py set softtabstop=2      "Set inserted tabstop
 autocmd FileType py set shiftwidth=2      "Set inserted tabspace
 "END
 
+" HTML
+autocmd FileType html set tabstop=2          "Set Display tabstop
+autocmd FileType html set softtabstop=2      "Set inserted tabstop
+autocmd FileType html set shiftwidth=2      "Set inserted tabspace
+"END
+
 " Set Retarded things that should be standard
 :colorscheme corporation
 
