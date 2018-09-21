@@ -1,0 +1,16 @@
+download-path "~/Downloads/%h/%n/"
+max-downloads 3
+player "mpv"
+
+bind-key j down
+bind-key k up
+bind-key l next articlelist
+bind-key h prev articlelist
+bind-key L next-feed articlelist
+bind-key H prev-feed articlelist
+
+bind-key G end  
+bind-key g home
+
+auto-reload yes
+reload-time 5
