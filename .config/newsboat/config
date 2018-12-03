@@ -1,6 +1,10 @@
-download-path "~/Downloads/%h/%n/"
+download-path "~/Audio/%n"
 max-downloads 3
 player "mpv"
+
+browser "vimb %u >/dev/null 2>&1 &"
+
+podlist-format "%4i [%-5p %%] %-12S %b"
 
 bind-key j down
 bind-key k up
@@ -9,7 +13,7 @@ bind-key h prev articlelist
 bind-key L next-feed articlelist
 bind-key H prev-feed articlelist
 
-bind-key G end  
+bind-key G end
 bind-key g home
 
 auto-reload yes
