@@ -17,7 +17,9 @@ alias ls='ls -l'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias yamite='reboot'
+alias vim='nvim'
+
+alias ymp3='youtube-dl2 --extract-audio --add-metadata'
 
 # Git Aliases
 alias clone='git clone'
@@ -34,7 +36,7 @@ COMPLETION_WAITING_DOTS="true"
 
 export PATH=~/bin:$PATH
 export PATH=~/.gem/ruby/2.5.0/bin:$PATH
-export GOPATH=$HOME/SeniorDesign/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:.
 

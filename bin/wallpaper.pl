@@ -55,7 +55,7 @@ sub setwall {
 }
 
 # killall -q wallpaper.sh
-for my $i ( `pgrep perl` ) {
+for my $i ( `pgrep wallpaper.pl` ) {
   if ( $i != $$ ) {
     system( "kill -9 $i" );
   }
