@@ -44,3 +44,12 @@ nnoremap L <C-I>
 # needs it, can I just hit ! and have the page reload with JS activated.
 set scripts=off
 nnoremap ! :set scripts!<CR>r
+
+# Change zoom
+set default-zoom=80
+
+# Some Privacy stuff, cookies have to be turned on to access github.
+# fucking microsoft
+set header=DNT=1,referer='https://duckduckgo.org'
+set user-agent='none of yo bisness'
+#set cookie-accept=never
