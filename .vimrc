@@ -89,15 +89,14 @@ set clipboard=unnamed
 map <F4> :vsp %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Latex
-autocmd FileType tex map <F4> :!bibtex %:r.aux<CR>
-autocmd FileType tex map <F5> :!pdflatex -output-directory=%:p:h %:p<CR>
-autocmd FileType tex nnoremap \\ :!pdflatex -output-directory=%:p:h %:p<CR>
-autocmd FileType tex map <F6> :silent :!zathura %:r.pdf &<CR>
-autocmd FileType tex inoremap \bf \textbf{}<Space><++><Esc>T{i
-autocmd FileType tex inoremap \if \textit{}<Space><++><Esc>T{i
+autocmd FileType tex nnoremap <leader>b :!pdflatex -output-directory=%:p:h %:p<CR>
+autocmd FileType tex nnoremap <leader>d :silent :!zathura %:r.pdf &<CR>
 autocmd FileType tex inoremap \align \begin{align*}<CR><Space><CR>\end{align*}<Esc>kA
 autocmd FileType tex inoremap \enu \begin{enumerate}<CR>\item <CR>\end{enumerate} <++><Esc>kA
 autocmd FileType tex :set spell
+autocmd FileType tex set tabstop=4          "Set Display tabstop
+autocmd FileType tex set softtabstop=4      "Set inserted tabstop
+autocmd FileType tex set shiftwidth=4      "Set inserted tabspace
 "END
 
 " Bash
@@ -146,6 +145,13 @@ autocmd FileType haskell set tabstop=2          "Set Display tabstop
 autocmd FileType haskell set softtabstop=2      "Set inserted tabstop
 autocmd FileType haskell set shiftwidth=2      "Set inserted tabspace
 autocmd FileType haskell set expandtab      "Haskell doesnt like tabs
+"END
+"
+" golang
+autocmd FileType go set tabstop=2          "Set Display tabstop
+autocmd FileType go set softtabstop=2      "Set inserted tabstop
+autocmd FileType go set shiftwidth=2      "Set inserted tabspace
+autocmd FileType go set expandtab      "Haskell doesnt like tabs
 "END
 
 " Open Maximized in Windows

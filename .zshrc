@@ -77,3 +77,13 @@ export KEYTIMEOUT=1
 export EDITOR=vim
 export VISUAL=vim
 
+# Desired result:
+# nnn launches as default "shell"
+# when base nnn instance closes shell closes
+# opening shell in nnn opens zsh
+
+# first test arg returns 5 on opening zsh
+# 1 header, nnn +1, zsh +1, ps +1, wc +1
+if [[ $(ps | wc -l ) -lt 6 ]]; then
+    exec nnn
+fi
