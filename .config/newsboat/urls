@@ -1,17 +1,75 @@
-http://lukesmith.xyz/rss.xml blog
-https://text.causal.agency/feed.atom blog
-http://rss.slashdot.org/Slashdot/slashdot news
-https://notrelated.libsyn.com/rss podcast
-http://thedickshow.libsyn.com/thedickshow podcast
-http://biggestproblemuncucked.libsyn.com/rss podcast
-https://feeds.soundcloud.com/users/soundcloud:users:104876854/sounds.rss podcast
-https://www.patreon.com/rss/thedickshow?auth=8937a7eb446f6549690dbb9aec666e38 podcast
-http://boomervszoomer.libsyn.com/rss podcast
-https://www.oglaf.com/feeds/rss/ webcomics 
-https://www.xkcd.com/rss.xml webcomics
-http://www.smbc-comics.com/comic/rss webcomics
-https://www.exocomics.com/feed webcomics
-http://www.vgcats.com/vgcats.rdf.xml webcomics
-https://loadingartist.com/feed/ webcomics
-http://www.thegamercat.com/feed/ webcomics
-http://feed43.com/2023102361452841.xml webcomics
+http://lukesmith.xyz/rss.xml "blog"
+https://text.causal.agency/feed.atom "blog"
+http://rss.slashdot.org/Slashdot/slashdot "news"
+https://newsboat.org/news.atom "dev"
+https://notrelated.libsyn.com/rss "podcast"
+https://feeds.feedburner.com/dancarlin/history "podcast"
+https://lobste.rs/rss "news"
+http://thedickshow.libsyn.com/thedickshow "podcast"
+http://biggestproblemuncucked.libsyn.com/rss "podcast"
+https://feeds.soundcloud.com/users/soundcloud:users:104876854/sounds.rss "podcast"
+https://www.patreon.com/rss/thedickshow?auth=8937a7eb446f6549690dbb9aec666e38 "podcast"
+https://isitkino.podbean.com/feed.xml "podcast"
+http://boomervszoomer.libsyn.com/rss "podcast"
+https://www.oglaf.com/feeds/rss/ "webcomics"
+https://www.xkcd.com/rss.xml "webcomics"
+http://www.smbc-comics.com/comic/rss "webcomics"
+https://www.exocomics.com/feed "webcomics"
+http://www.vgcats.com/vgcats.rdf.xml "webcomics"
+https://loadingartist.com/feed/ "webcomics"
+http://www.thegamercat.com/feed/ "webcomics"
+------YOUTUBE------
+https://vimeo.com/user93073844/videos/rss "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCe02lGcO-ahAURWuxAJnjdA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7j2nATL5qX-CfzdFvNfPtA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbkjX3E0IhuUfPzL0FjSPaw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC52kszkc08-acFOuogFl5jw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-lHJZR3Gqxm24_Vd_AJ5Yw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4BZtFgtCuHUt0p8J-XENiA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCaqak9HQRpy_H00vCn-P3sA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClZbO3wehSIsPUKLx_X5caw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3g50Yr3GFPYrBj-n55BdqA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfhkaO2fOmIX05DQ72uZsig "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCk9NvmsPBC3lTn_L9kFaylA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCDrekHmOnkptxq3gUU0IyfA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4X7J9D6VbTIwnFDFNkfQ1A "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0aanx5rpr7D1M7KCFYzrLQ "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7eWRnOTyqua812sDXGqiqw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCEG3ulBltfrvOE8baBogJ0g "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFk__1iexL3T5gvGcMpeHNA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClcE-kVhqyiHCcjYwcpfj9w "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUR1pFG_3XoZn3JNKjulqZg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCS0N5baNlQWJCUrhCEo8WlA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcCBY9rmpMonVktOEZpI_pg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCworsKCR-Sx6R6-BnIjS2MA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCwnGT1xcf4Efl9L7mOx4Tig "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCwRqWnW5ZkVaP_lZF7caZ-g "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCd0IJPoC6CbPs7gYroOsqKA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSJ4gkVC6NrvII8umztf0Ow "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5Nx6SUbbZ_ERaveuO-7OoA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCn-K7GIs62ENvdQe6ZZk9-w "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCW6TXMZ5Pq6yL6_k5NZ2e0Q "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGR8W7Jf6opb_EFJwlymOPQ "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC72vWiZdUN_Y2OC2RgJ-dvA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4XWGSe8Yc_iZr6TIDt7Eiw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQeWZ0ninG-2pzlaenh2ECw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMpizQXRt817D0qpBQZ2TlA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1_uAIS3r8Vu6JjXWvastJg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCzV9N7eGedBchEQjQhPapyQ "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-Q4WBqNtMF_2GbIsGjic4A "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrTNhL_yO3tPTdQ5XgmmWjA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkH7n_z8Sbr8VVDvYeDEuMg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC81ISahSR3ESe7SFWSaTAlA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCV8tyRakGZuXUwD-wYH1yGg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkitABalXafr-NqceQdDXtg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCE_hjYd8HzRTVVXEr7jjHng "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvKLrpen70sLbTe8sg5TWtQ "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6jDMnL7PNfXeBocknTtqwQ "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCa31Blmbe2lMySG3SXndmSg "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCoxcjq-8xIDTYp3uz647V5A "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGfBXs27YPr0U8CFim-RefQ "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCir4goG7LBQCh5rc3frkHuA "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCShTuJ7fib0RCZil9CPsBNw "YouTube Subscriptions"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCTopyaagAIJcfPbICdPB63A "YouTube Subscriptions"

@@ -20,6 +20,7 @@ alias mv='mv -i'
 alias vim='nvim'
 
 alias ymp3='youtube-dl2 --extract-audio --add-metadata'
+alias yy='youtube-viewer'
 
 # Git Aliases
 alias clone='git clone'
@@ -74,8 +75,8 @@ zle -N zle-keymap-select
 
 export KEYTIMEOUT=1
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Desired result:
 # nnn launches as default "shell"

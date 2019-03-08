@@ -2,8 +2,6 @@ download-path "~/Audio/Podcasts/%n"
 max-downloads 3
 player "mpv"
 
-podcast-auto-enqueue yes
-
 browser "vimb %u >/dev/null 2>&1 &"
 
 podlist-format "%4i [%-5p %%] %-12S %b"
@@ -20,3 +18,6 @@ bind-key g home
 
 auto-reload yes
 reload-time 30
+
+#urls-source "opml"
+#opml-url "http://save.vs.totalpartykill.ca/grab-bag/osr.opml"

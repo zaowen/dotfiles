@@ -7,9 +7,9 @@ map <leader><Tab> :-1 read ~/.vim/snip/%:e<CR> <leader><Space>
 inoremap <leader><Space> <Esc>/<++><Enter>"_c4l
 nnoremap <leader><Space> <Esc>/<++><Enter>"_c4l
 
-"set tabstop=4          "Set Display tabstop
-"set softtabstop=4      "Set inserted tabstop
-"set shiftwidth=4      "Set inserted tabspace
+set tabstop=4          "Set Display tabstop
+set softtabstop=4      "Set inserted tabstop
+set shiftwidth=4      "Set inserted tabspace
 
 " Set Retarded things that should be standard
 
@@ -52,7 +52,7 @@ cmap w!! w !sudo tee >/dev/null %
 :hi SpecialKey guifg=#3333AA
 
 " Tab stuff
-:set expandtab          "Use spaces instead of tabs
+":set expandtab          "Use spaces instead of tabs
 :set autoindent         "infer indent from previous line
 :set smartindent        "somehow diffrent from autoindent
 :set cindent            "somehow diffrent from smartindent
@@ -151,7 +151,18 @@ autocmd FileType haskell set expandtab      "Haskell doesnt like tabs
 autocmd FileType go set tabstop=2          "Set Display tabstop
 autocmd FileType go set softtabstop=2      "Set inserted tabstop
 autocmd FileType go set shiftwidth=2      "Set inserted tabspace
-autocmd FileType go set expandtab      "Haskell doesnt like tabs
+"END
+"
+" lisp
+autocmd FileType lisp set tabstop=4          "Set Display tabstop
+autocmd FileType lisp set softtabstop=4      "Set inserted tabstop
+autocmd FileType lisp set shiftwidth=4      "Set inserted tabspace
+"END
+
+" Rust
+autocmd FileType go set tabstop=4          "Set Display tabstop
+autocmd FileType go set softtabstop=4      "Set inserted tabstop
+autocmd FileType go set shiftwidth=4      "Set inserted tabspace
 "END
 
 " Open Maximized in Windows

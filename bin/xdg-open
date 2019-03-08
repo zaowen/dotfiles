@@ -1,0 +1,53 @@
+#!/bin/bash
+# (real) XDG-OPEN is for idiots
+# only opens files for non-text files as opening a detached vim instance in vim"kills the crab"
+
+IFS=$'\n'
+
+function media() {
+  mpv "${1}"
+}
+
+function picture() {
+  feh -F "${1}"
+}
+
+function document() {
+  zathura "${1}"
+}
+
+# I either want the name of the file (e.g. Makefile) or the extension
+if [[ $(basename $1) == *\.* ]]; then
+  ext="${1#*.}"
+  # Deals with things like "Weird crap - Degeneratewebsite.blogspot.com.avi"
+  while [[ $ext == *\.* ]]; do
+    ext="${ext#*.}"
+  done
+
+else
+  ext=$(basename $1)
+fi
+
+# Keep around for debug purposes
+#echo $ext
+# Run sort on this list every once in a while
+case $ext in
+  avi)      media    $1 ;;
+  flv)      media    $1 ;;
+  gif)      media    $1 ;;
+  jpg)      picture  $1 ;;
+  m4a)      media    $1 ;; 
+  mp3)      media    $1 ;;
+  mkv)      media    $1 ;;
+  mp4)      media    $1 ;;
+  ogg)      media    $1 ;;
+  opus)     media    $1 ;;
+  pdf)      document $1 ;;
+  png)      picture  $1 ;; 
+  wav)      media    $1 ;;
+  webm)     media    $1 ;;
+  wmv)      media    $1 ;;
+  *)
+    echo $1
+    ;;
+esac
