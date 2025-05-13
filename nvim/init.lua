@@ -73,9 +73,8 @@ vim.g.mapleader = "\\"
 vim.keymap.set("n", "<leader>b", function() print("derp") end)
 vim.keymap.set("n", "<leader>e", "<Cmd>lua MiniFiles.open() <CR>")
 
-vim.o.smartcase = true
-vim.o.ignorecase = true
-vim.o.hlsearch = false
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
 
 vim.b.expandtab = true
 vim.bo.expandtab = true
