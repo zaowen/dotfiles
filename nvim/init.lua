@@ -104,14 +104,15 @@ vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Telescope find fi
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' }) -- need ripgrep -- rust is stupid
 
-vim.keymap.set('n', '<F4>', function() 
+--Swap between .cpp and .h
+vim.keymap.set('n', '<F4>', function()
     if( string.sub(vim.fn.expand('%'),-4,-1) == ".cpp" )
         then
             vim.cmd { cmd = "edit", args = { vim.fn.expand("%<")..".h" } }
         elseif( string.sub(vim.fn.expand('%'),-2,-1) == ".h" )
             then
                 vim.cmd { cmd = "edit", args = { vim.fn.expand("%<")..".cpp" } }
-            else 
+            else
                 print("Where are you? moron.")
             end
 end )
@@ -124,14 +125,11 @@ vim.api.nvim_create_user_command("WA", "wa", {})
 
 --vim.cmd('cd %:p:h')
 function get_git_root()
-    --local dot_git_path2 = vim.fn.finddir(".git", vim.fn.expand("%:p:h"))
     local dot_git_path = vim.fn.finddir(".git", ".;")
     if( dot_git_path == "")
             then
                     dot_git_path = vim.fn.expand("%:p:h")
             end
-            --local butts = vim.fn.fnamemodify(dot_git_path, ":p:h")
-            --print(dot_git_path.."-=-".."||||"..butts)
             return vim.fn.fnamemodify(dot_git_path, ":p:h:h")
 end
 
@@ -145,8 +143,8 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
     pattern = { "*" },
     callback = function()
             local root = get_git_root()
-	    vim.api.nvim_set_current_dir(root)
-    end 
+            vim.api.nvim_set_current_dir(root)
+    end
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
