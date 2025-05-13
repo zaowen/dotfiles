@@ -151,7 +151,30 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	group = groupID,
         pattern = { "*.cpp", "*.h" },
         callback = function()
-                print("BUFFER ENTER")
+                vim.b.tabstop = 4
+                vim.b.shiftwidth = 4
+                vim.b.expandtab = true
+                vim.bo.tabstop = 4
+                vim.bo.shiftwidth = 4
+                vim.bo.expandtab = true
+        end 
+})
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+	group = groupID,
+        pattern = { "*.lua" },
+        callback = function()
+                vim.b.tabstop = 4
+                vim.b.shiftwidth = 4
+                vim.b.expandtab = true
+                vim.bo.tabstop = 4
+                vim.bo.shiftwidth = 4
+                vim.bo.expandtab = true
+        end 
+})
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+	group = groupID,
+        pattern = { "*.qml" },
+        callback = function()
                 vim.b.tabstop = 4
                 vim.b.shiftwidth = 4
                 vim.b.expandtab = true
