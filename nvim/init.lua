@@ -4,6 +4,15 @@ require("mini.git").setup()
 require("catppuccin").setup({
     flavour = "frappe"
 })
+
+require("telescope").setup({
+	--in theory this will work if i get ripgrep
+    pickers = {
+        find_files = {
+            find_command = { 'rg', "--files", '--line-number', '--with-filename', }
+        }
+    }
+})
 require("luasnip")
 
 local lsp_conf = require("lspconfig")
@@ -93,7 +102,7 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Telescope find files' })
 --vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope live grep' }) --i dont know how this works
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fg', builtin.grep_string, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' }) -- need ripgrep -- rust is stupid
 
 vim.keymap.set('n', '<F4>', function() 
     if( string.sub(vim.fn.expand('%'),-4,-1) == ".cpp" )
