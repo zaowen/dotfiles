@@ -82,7 +82,10 @@ vim.wo.wrap = false
 vim.wo.number = true
 vim.wo.relativenumber = true
 
---↵
+
+vim.cmd { cmd = "hi", args = { "ExtraWhitespace ctermbg=red guibg=red" } }
+vim.cmd { cmd = "mat", args = { "ExtraWhitespace /\\s\\+$/" } }
+
 vim.opt.listchars = { space = '·', eol = '$', tab = '>~' }
 vim.opt.list=true
 
